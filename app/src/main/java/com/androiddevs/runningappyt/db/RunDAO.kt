@@ -13,17 +13,17 @@ interface RunDAO {
     suspend fun deleteRun(run: Run)
 
 
-    /* //Similar but shorter
-     @Query("""
-         SELECT * FROM running_table
-         ORDER BY
-         CASE WHEN :column = 'timestamp'  THEN timestamp END DESC,
-         CASE WHEN :column = 'timeInMillis' THEN timeInMillis END DESC,
-         CASE WHEN :column = 'calories' THEN caloriesBurned END DESC,
-         CASE WHEN :column = 'speed'  THEN avgSpeedInKMH END DESC,
-         CASE WHEN :column = 'distance' THEN distanceInMeters END DESC,
-     """)
-     suspend fun filterBy(column : String) : LiveData<List<Run>>*/
+   /* //Similar but shorter
+    @Query("""
+        SELECT * FROM running_table
+        ORDER BY
+        CASE WHEN :column = 'timestamp'  THEN timestamp END DESC,
+        CASE WHEN :column = 'timeInMillis' THEN timeInMillis END DESC,
+        CASE WHEN :column = 'calories' THEN caloriesBurned END DESC,
+        CASE WHEN :column = 'speed'  THEN avgSpeedInKMH END DESC,
+        CASE WHEN :column = 'distance' THEN distanceInMeters END DESC,
+    """)
+    suspend fun filterBy(column : String) : LiveData<List<Run>>*/
 
     @Query("SELECT * FROM running_table ORDER BY timeStamp DESC")
     fun getAllRunsSortedByDate() : LiveData<List<Run>>
